@@ -5,7 +5,13 @@ import { useEffect, useState } from "react";
 
 export function RepositoryList(){
 
-    const [repositories, setRepositories] = useState([]);
+  interface Repository{
+    name: string;
+    description: string;
+    html_url: string;
+  }
+
+    const [repositories, setRepositories] = useState<Repository[]>([]);
 
     useEffect(() => {
       fetch('https://api.github.com/orgs/rocketseat/repos')
